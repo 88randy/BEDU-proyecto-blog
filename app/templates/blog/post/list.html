@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Mi blog{% endblock %}
+
+{% block content %}
+<h1>Mi blog</h1>
+    {% if posts %}
+        {% for post in posts %}
+            <h2>
+            <a href="{% url 'blog:post_detail' post.id %}">
+                {{ post.title }}
+            </a>
+            </h2>
+            <p class="date">
+                Publicado el {{ post.publish }} por {{ post.author|capfirst }}
+            </p>
+            {{ post.body|truncatewords:30|linebreaks }}
+        {% endfor %}
+    {% else %}
+        <p>
+            No se encontraro entradas
+        </p>
+    {% endif %}
+{% endblock %}
