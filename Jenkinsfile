@@ -14,8 +14,8 @@ node {
     stage('Deploy') {
         sh 'set'
         sh 'docker stop myblog || true && docker rm myblog || true'
+        sh 'docker-compose up -d'
         sh 'docker-compose exec web python manage.py flush --no-input'
         sh 'docker-compose exec web python manage.py migrate'
-        sh 'docker-compose up -d'
     }
 }
