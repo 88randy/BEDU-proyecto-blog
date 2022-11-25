@@ -4,7 +4,7 @@ node {
         checkout scm 
     }
     stage('Build') {
-        app = docker.build("myblog:latest")
+        app = docker.build("app/myblog:latest")
     }
     stage('Test') {
         app.inside {
