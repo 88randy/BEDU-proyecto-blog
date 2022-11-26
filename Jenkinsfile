@@ -4,7 +4,7 @@ node {
         checkout scm 
     }
     stage('Build') {
-        app = docker.build("bedu-proyecto_web_1:latest")
+        app = docker.build("bedu-proyecto_web:latest")
     }
     stage('Test') {
         app.inside {
