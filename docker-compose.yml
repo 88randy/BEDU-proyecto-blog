@@ -12,7 +12,7 @@ services:
   web_migrate:
     extends:
       service: web
-  command: python manage.py migrate
+    command: python manage.py migrate
   web_run:
     extends:
       service: web
