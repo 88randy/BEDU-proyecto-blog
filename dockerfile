@@ -19,7 +19,12 @@ RUN pip install --no-cache-dir -r requirements.txt --no-color
 COPY . /usr/src/app
 
 # Iniciar el servicio
-CMD ["python", "./manage.py", "runserver", "0.0.0.0:8000"]
+#CMD ["python", "./manage.py", "runserver", "0.0.0.0:8000"]
+
+ADD entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
 
 # Ejecuta entrypoint.sh
 #ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
