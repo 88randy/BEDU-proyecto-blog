@@ -3,9 +3,6 @@ node {
     stage('Clone') {
         checkout scm 
     }
-    stage('Build') {
-        app = docker.build("bedu-proyecto_web_1:latest")
-    }
     stage('Test') {
         app.inside {
             sh 'pip list'
