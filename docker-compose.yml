@@ -7,7 +7,6 @@ services:
     volumes:
       - .:/usr/src/app
       - .db_data/db.sqlite3:/db.sqlite3
-    command: python manage.py migrate
-    command: python manage.py runserver 0.0.0.0:8000
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
