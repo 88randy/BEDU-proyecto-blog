@@ -10,26 +10,16 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1 
 ENV PYTHONUNBUFFERED 1
 
-# install psycopg2 dependencies
-RUN apk update \
-    && apk add postgresql-dev gcc python3-dev musl-dev
-
 # Instalar dependencias.
 RUN pip install --upgrade pip
-COPY ./requirements.txt .
+COPY requirements.txt /usr/src/app
 RUN pip install --no-cache-dir -r requirements.txt --no-color
 
-
-# Copiar entrypoint.sh que verifica si la BD se encuentra en buen estado antes de hacer las migraciones
-COPY ./entrypoint.sh .
-RUN sed -i 's/\r$//g' /usr/src/app/entrypoint.sh
-RUN chmod +x /usr/src/app/entrypoint.sh
-
 # Copiar el codigo fuente al directorio de trabajo
-COPY . .
+COPY . /usr/src/app
 
 # Ejecuta entrypoint.sh
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+#ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 
 # Abrir el puerto 80 del contendor
 #EXPOSE 8000

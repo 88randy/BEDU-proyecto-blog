@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-import psycopg2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "django-insecure-=n+58@n)nu(t^t@%n^pyynb-%!k=6egxt(+($n%h4e9tx4#u7q"
 
 # Application definition
 

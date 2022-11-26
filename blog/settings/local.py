@@ -1,9 +1,9 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = True #int(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = [] # os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
