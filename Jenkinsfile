@@ -14,6 +14,6 @@ node {
     stage('Deploy') {
         sh 'set'
         sh 'docker stop myblog || true && docker rm myblog || true'
-        sh 'docker-compose up -d'
+        sh 'docker-compose up --build'
     }
 }
