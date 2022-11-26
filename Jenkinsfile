@@ -16,7 +16,7 @@ node {
         sh 'docker stop myblog || true && docker rm myblog || true'
         sh 'docker stop bedu-proyecto_web || true && docker rm bedu-proyecto_web || true'
         sh 'docker-compose up --build'
-        sh 'docker-compose exec web python manage.py flush --no-input'
-        sh 'docker-compose exec web python manage.py migrate'
+        sh 'docker-compose exec bedu-proyecto_web_1 python manage.py flush --no-input'
+        sh 'docker-compose exec bedu-proyecto_web_1 python manage.py migrate'
     }
 }
