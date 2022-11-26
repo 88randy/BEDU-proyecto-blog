@@ -14,6 +14,6 @@ node {
     stage('Deploy') {
         sh 'set'
         sh 'docker stop bedu-proyecto_web || true && docker rm bedu-proyecto_web || true'
-        sh 'docker-compose up --build'
+        sh 'docker-compose up -d --build'
     }
 }
