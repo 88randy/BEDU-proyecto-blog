@@ -4,7 +4,7 @@ node {
         checkout scm 
     }
     stage('Build') {
-        app = docker.build("bedu-proyecto_web:latest")
+        app = docker.build("bedu-proyecto_web_1:latest")
     }
     stage('Test') {
         app.inside {
@@ -13,7 +13,7 @@ node {
     }
     stage('Deploy') {
         sh 'set'
-        sh 'docker stop bedu-proyecto_web || true && docker rm bedu-proyecto_web || true'
+        sh 'docker stop bedu-proyecto_web_1 || true && docker rm bedu-proyecto_web_1 || true'
         sh 'docker-compose up -d --build'
     }
 }
