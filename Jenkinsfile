@@ -15,7 +15,6 @@ node {
         sh 'set'
         sh 'docker stop bedu-proyecto_web || true && docker rm bedu-proyecto_web|| true'
         sh 'docker run -p 8000:8000 -d --rm --name bedu-proyecto_web  bedu-proyecto_web:latest'
-        sh 'docker exec bedu-proyecto_web python manage.py migrate'
-        sh 'docker exec bedu-proyecto_web python manage.py runserver 0.0.0.0:8000'
+       
     }
 }
