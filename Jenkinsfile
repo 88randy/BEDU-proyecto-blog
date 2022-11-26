@@ -14,6 +14,7 @@ node {
     stage('Deploy') {
         sh 'set'
         sh 'docker stop bedu-proyecto_web || true && docker rm bedu-proyecto_web|| true'
-        sh 'docker run -p 8000:8000 -d --name bedu-proyecto_web  bedu-proyecto_web:latest'
+        sh 'docker volume create bedu-proyecto_web_vol'
+        sh 'docker run -p 8000:8000 -d -v bedu-proyecto_web_vol:var/python_home --name bedu-proyecto_web bedu-proyecto_web:latest'
     }
 }
