@@ -9,3 +9,13 @@ services:
       - .db_data/db.sqlite3:/db.sqlite3
     ports:
       - "8000:8000"
+  web_migrate:
+  extends:
+    service: web
+  command: python manage.py migrate
+  web_run:
+    extends:
+      service: web
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
