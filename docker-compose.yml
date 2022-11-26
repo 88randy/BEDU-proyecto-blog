@@ -10,8 +10,8 @@ services:
     ports:
       - "8000:8000"
   web_migrate:
-  extends:
-    service: web
+    extends:
+      service: web
   command: python manage.py migrate
   web_run:
     extends:
