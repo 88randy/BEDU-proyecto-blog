@@ -3,14 +3,17 @@ node {
     stage('Clone') {
         checkout scm 
     }
+    stage('Build') {
+        steps {
+            sh 'docker-compose up -d --build'
+        }
+    }
     stage('Test') {
         app.inside {
             sh 'pip list'
         }
     }
     stage('Deploy') {
-        sh 'set'
-        sh 'docker stop bedu-proyecto_web_1 || true && docker rm bedu-proyecto_web_1 || true'
-        sh 'docker-compose up -d --build'
+        sh 'echo Listo'
     }
 }
